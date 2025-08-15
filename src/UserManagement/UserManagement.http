@@ -1,0 +1,12 @@
+@UserManagement_HostAddress = http://localhost:8080
+
+POST {{UserManagement_HostAddress}}/api/user/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "123456"
+}
+
+###

@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>eed7c04d-5924-40d6-8d08-54ba9e230c90</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\" />
+  </ItemGroup>
+
+</Project>

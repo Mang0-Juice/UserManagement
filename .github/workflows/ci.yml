@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore & Build
+        run: |
+          dotnet restore
+          dotnet build --no-restore -c Release
+
+      - name: Run unit tests
+        run: dotnet test ./tests/UserManagement.Test/UserManagement.Test.csproj --no-build -c Release --filter Category=Unit
+
+      - name: Publish artifact
+        run: dotnet publish ./src/UserManagement/UserManagement.csproj -c Release -o ./artifacts
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: usermanagement-artifact
+          path: ./artifacts

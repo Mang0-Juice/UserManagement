@@ -1,0 +1,181 @@
+# .gitignore — UserManagement (ASP.NET Core 9.0) + tests
+# Purpose: manter código e testes versionados, ignorando artefatos gerados localmente
+
+# -----------------------
+# IDE / OS
+# -----------------------
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.userprefs
+*.DS_Store
+Thumbs.db
+
+# -----------------------
+# Build / runtime
+# -----------------------
+bin/
+obj/
+artifacts/
+**/bin/
+**/obj/
+*.log
+*.vspscc
+*.vssscc
+*.builds
+*.pidb
+
+# MSBuild binary logs
+*.binlog
+
+# -----------------------
+# .NET / NuGet
+# -----------------------
+project.lock.json
+project.fragment.lock.json
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+.nuget/
+packages/
+
+# -----------------------
+# EF / Local DB / Test DBs
+# -----------------------
+# SQLite local DB files (development/test)
+*.db
+*.db-journal
+/data/*.db
+/tests/**/*.db
+src/**/data/*.db
+**/App_Data/*.mdf
+**/*.mdf
+**/*.ldf
+
+# -----------------------
+# Test artifacts / coverage
+# -----------------------
+TestResults/
+**/TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+coverage.*
+coverage*.xml
+coverage*.info
+coverage*.json
+*.result.xml
+
+# Coverlet / OpenCover
+coverage.opencover.xml
+opencover.xml
+coverage.opencover
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# -----------------------
+# Test tooling / reports
+# -----------------------
+.vscode-test/
+*.testsettings
+*.tests
+TestResults/
+
+# -----------------------
+# Docker
+# -----------------------
+docker-compose.override.yml
+docker-compose.*.yml
+**/docker-compose.override.yml
+**/docker-compose.*.yml
+
+# -----------------------
+# Publishing / deployment
+# -----------------------
+publish/
+publish_output/
+*.publishsettings
+*.azurePubxml
+*.appx
+*.appxbundle
+*.appxupload
+
+# -----------------------
+# User secrets / env / local settings
+# -----------------------
+secrets.json
+*.Local.settings.json
+appsettings.*.json.user
+appsettings.*.local
+*.env
+.env.local
+*.usersecrets
+
+# -----------------------
+# Logs / temp
+# -----------------------
+[Ll]og/
+[Oo]ut/
+*.tmp
+*.temp
+tmp/
+temp/
+
+# -----------------------
+# IDE plugins / tools
+# -----------------------
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+_TeamCity*
+*.dotCover
+.axoCover/
+!.axoCover/settings.json
+
+# -----------------------
+# Testcontainers / CI artifacts
+# -----------------------
+testcontainers-*.log
+
+# -----------------------
+# Frontend / node (if any)
+# -----------------------
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# -----------------------
+# Misc / generated
+# -----------------------
+*.vsix
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+*.rptproj.bak
+migration/*.backup
+
+# -----------------------
+# Editor configs
+# -----------------------
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# -----------------------
+# Keep tests code versioned — ignore only generated/test artifacts above
+# -----------------------
+
