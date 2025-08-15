@@ -9,6 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./   # raiz do repositório já no runner
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,19 +26,19 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Restore solution
-        run: dotnet restore ./UserManagement.sln
+        run: dotnet restore UserManagement.sln
 
       - name: Build solution
-        run: dotnet build ./UserManagement.sln -c Release --no-restore
+        run: dotnet build UserManagement.sln -c Release --no-restore
 
       - name: Run tests
-        run: dotnet test ./tests/UserManagement.Tests/UserManagement.Tests.csproj -c Release --no-build --logger "trx;LogFileName=test_results.trx"
+        run: dotnet test tests/UserManagement.Tests/UserManagement.Tests.csproj -c Release --no-build --logger "trx;LogFileName=test_results.trx"
 
       - name: Publish project
-        run: dotnet publish ./src/UserManagement/UserManagement.csproj -c Release -o ./publish
+        run: dotnet publish src/UserManagement/UserManagement.csproj -c Release -o publish
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: usermanagement-artifact
-          path: ./publish
+          path: publish
